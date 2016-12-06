@@ -6,7 +6,7 @@ $fg[green]>$reset_color "
 
 RPROMPT="%T"
 
-//creates a new python server
+
 function server (){
 	if [$1]
 	then
@@ -17,19 +17,25 @@ function server (){
 	open "http://localhost:$port" && python -m SimpleHTTPServer "$port"
 }
 
-//Git shortcuts
-//Add file
+
 function gita(){
 	git add .
 }
 
-//push
+
 function gitpo(){
 	git push origin master
 }
 
-//heroku push
+Function web(){
+	cd ~/WebApps
+}
+
+
 function gitph(){
 	git push heroku master
 }
 
+Function take(){
+	mkdir "$1" && cd "$1"
+}
