@@ -1,0 +1,35 @@
+autoload -U colors && colors
+
+PROMPT="
+$fg[red]%n$reset_color@$fg[cyan]%m$fg[yellow] %~
+$fg[green]>$reset_color "
+
+RPROMPT="%T"
+
+//creates a new python server
+function server (){
+	if [$1]
+	then
+		local port="$1"
+	else
+		local port="8000"
+	fi
+	open "http://localhost:$port" && python -m SimpleHTTPServer "$port"
+}
+
+//Git shortcuts
+//Add file
+function gita(){
+	git add .
+}
+
+//push
+function gitpo(){
+	git push origin master
+}
+
+//heroku push
+function gitph(){
+	git push heroku master
+}
+
